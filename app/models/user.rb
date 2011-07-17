@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
     def add_friend(name)
         friend = User.find_by_name name
         if friend
-            Friendship.create(:user1_id => self.id, :user2_id => friend.id)
-            Friendship.create(:user1_id => friend.is, :user2_id => self.id) 
+            Friendship.create(:user_1_id => self.id, :user_2_id => friend.id)
         else
             return false
         end
