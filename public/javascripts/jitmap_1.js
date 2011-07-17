@@ -160,5 +160,5 @@ $(document).ready(function() {
       }
     });
     // end
-  }
+  });
 });
