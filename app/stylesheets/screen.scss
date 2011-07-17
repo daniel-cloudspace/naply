@@ -2,14 +2,61 @@
 
 $naplyBlack: #010101;
 $naplyWhite: #fff4f1;
-
+$naplyYellow: #FFFF00;
+$naplyGreen: #4DFF00;
+$naplyViolet: #63009D;
+$naplyPurple: #BE00AB;
+$cloudBlue: #095ab5;
 
 // MAIN STYLING
 
 html {
-  background-color: white; 
-  font-family: 'Terminal Dosis Light', sans-serif;
-  color: black} 
+  background-color: $naplyBlack; 
+  font-family: 'Bowlby One SC', sans-serif;
+  color: $naplyWhite; }
+
+body {
+  margin: 0 auto 0 auto; }
+
+header {
+  width: 770px;
+  margin: 0 auto 0 auto; }
 
 h1 {
-  font-size: 4em; }
+  font-size: 3em;
+  margin: 0 auto 0 auto;}
+
+#container {
+  position: relative;
+  width: 90%;
+  height: 400px;
+  background-color:black;
+  margin: 0 auto 0 auto; }
+
+#infovis {
+  @extends #container;
+  min-height: 500px; }
+
+h1 {
+  position: relative;
+  height: 85px;
+  background-image: url('/images/nerdapalooza.png');
+  background-repeat: no-repeat;
+  background-position: 285px 0px;}
+
+footer {
+  width: 720px;
+  margin: 0 auto 0 auto; 
+  padding-left: 25px; }
+
+footer p {
+  position: relative;
+  height: 55px;
+  float: left;
+  padding-left: 95px;
+  padding-top: 30px;
+  background: url("/images/cloudspacelogo.png");
+  background-repeat: no-repeat; }
+
+a {
+  color: $cloudBlue; }
