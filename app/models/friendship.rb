@@ -1,8 +1,8 @@
 class Friendship < ActiveRecord::Base
     validates_uniqueness_of :user_2_id, :scope => :user_1_id
 
-    has_one :user_1, :source => :users
-    has_one :user_2, :source => :users
+    has_one :user_1, :as => :user
+    has_one :user_2, :as => :user
 
     after_create :create_conjugate_friendship
     after_destroy :destroy_conjugate_friendship
