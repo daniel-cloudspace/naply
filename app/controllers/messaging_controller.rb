@@ -15,8 +15,6 @@ class MessagingController < ApplicationController
           render :json => Tropo::Generator.say("#{phone} has been added. Tell people to add you as '#{text}'!")
         end
       end
-
-      render :json => parse(initial_text)
     else
       render :json => Tropo::Generator.say("Unsupported operation")
     end
