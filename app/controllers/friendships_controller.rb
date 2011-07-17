@@ -13,6 +13,18 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def jit_output
+    @friendships = Friendship.all
+    @users = User.all
+    @friendships_full = @friendships.collect { |f| { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } }
+    respond_to do |format|
+      format.json { render :json => @friendships_full }
+    end
+  end
+
+  def network_map
+  end
+
   # GET /friendships/1
   # GET /friendships/1.xml
   def show
