@@ -8,17 +8,20 @@ class MessagingController < ApplicationController
     # if this message is an SMS message
     if network == "SMS" && phone =~ /^[0-9]+$/
       @user = User.find_by_phonenumber phone
-      # if this is a new user, create a new user
-      if @user.nil?
-        @user = User.create :phonenumber => phone, :name => text
-        if @user
+
+      if @user.nil? # CREATE THE USER FROM THE TEXT, SOMEHOW
+        @user = User.find_by_name_and_phonenumber text.downcase, nil
+        if @user.nil? # CREATE THE USER COMPLETELY NEW
+          @user = User.create_by_name_and_phone_number text.downcase, phone 
           render :json => Tropo::Generator.say("#{phone} has been added. Tell people to add you as '#{text}'!")
-        else
-          render :json => Tropo::Generator.say("Something has gone wrong :(. Check out the Cloudspace Booth by and we'll fix it!")
+        else # UPDATE AN EXISTING FRIEND WHO HAD NO PHONE NUMBER (created by add_friend)
+          @user.phone = phone
+          @user.save
+          render :json => Tropo::Generator.say("You already have friends! #{phone} has been associated. Tell people to add you as '#{text}'!")
         end
-      else
+      else # ADD FRIENDSHIP
         # if we DID find a user, then the message is a friend-add request, and the message text is the friend's name
-        if @user.add_friend(text)
+        if @user.add_friend(text.downcase)
           render :json => Tropo::Generator.say("Added #{text} as a friend! Go meet more people!")
         else
           render :json => Tropo::Generator.say("Something has gone wrong :(. Check out the Cloudspace Booth by and we'll fix it!")
