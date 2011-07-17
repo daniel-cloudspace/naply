@@ -32,12 +32,12 @@ class FriendshipsController < ApplicationController
   end
 
   def graphviz_map
-    @friendships = Friendship.all
+    @friendships = Friendship.all.collect{|f| f.user_1_id < f.user_2_id ? [ f.user_1_id, f.user_2_id ] : [ f.user_2_id, f.user_1_id ]}.uniq
     @users = User.all
     File.open("#{Rails.root}/tmp/graphviz.dot", "w") do |f|
         f.write("digraph {")
         @friendships.each do |friendship|
-            f.write("\"#{friendship.user_1.name}\"->\"#{friendship.user_2.name}\"")
+            f.write("\"#{friendship.user_1.name}\"--\"#{friendship.user_2.name}\"")
         end
         f.write("}")
     end
