@@ -7,6 +7,7 @@ Naply::Application.routes.draw do
   resources :users
 
   get "pages/home"
+  get "a" => "friendships#a"
 
 
 

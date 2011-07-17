@@ -25,6 +25,9 @@ class FriendshipsController < ApplicationController
   def network_map
   end
 
+  def a
+  end
+
   # GET /friendships/1
   # GET /friendships/1.xml
   def show
