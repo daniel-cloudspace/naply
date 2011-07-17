@@ -15,5 +15,5 @@ Naply::Application.routes.draw do
   post 'messaging', :controller => 'messaging', :action => 'index'
 
 
-  root :to => "pages#home"
+  root :to => "friendships#graphviz_map"
 end
