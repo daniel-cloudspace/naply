@@ -11,6 +11,8 @@ gem 'haml'
 gem 'sass'
 gem 'jquery-rails'
 
+gem 'ruby-debug19'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
