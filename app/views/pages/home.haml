@@ -1,16 +1,18 @@
-%h1 Pages#home
-%p Find me in app/views/pages/home.html.erb
 #users
-
+  #h3 Users:
 
 :javascript
   setInterval(function add_users(){
     $.ajax({
+      //url: "http://naply.dyndns.org:3000/friendships.json",
       url: "/friendships.json",
       dataType: 'json',
       success: function(users) {
+        //alert(users);
+        $('#users').replaceWith("<p>boobs"+users.name+"</p>");
+        console.log(users); 
         $.each(users, function(value) {
-          $(document).append("<p>BOOBIES" +  value + "</p>");
+          $('#users').append("<p>BOOBIES" +  users.name + "</p>");
         });
       }
     });
