@@ -2,7 +2,7 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.xml
   def index
-    @friendships = Friendship.all
+    @friendships = Friendship.all{:include => :users}
 
     respond_to do |format|
       format.html # index.html.erb
