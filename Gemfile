@@ -8,6 +8,8 @@ gem 'rails', '3.0.9'
 gem 'mysql'
 gem 'tropo-webapi-ruby', :git => 'git://github.com/tropo/tropo-webapi-ruby.git'
 
+gem 'ruby-debug19'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
