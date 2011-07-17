@@ -8,6 +8,7 @@ Naply::Application.routes.draw do
 
   get "pages/home"
   get "a" => "friendships#a"
+  get "graphviz_map" => "friendships#graphviz_map"
 
 
 
