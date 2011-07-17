@@ -39,6 +39,11 @@ p { font-size: 2em; }
   @extends #container;
   min-height: 500px; }
 
+#pink {
+  position: absolute;
+  float: right;
+  margin: 10 10 auto auto;} 
+
 h1 {
   position: relative;
   height: 85px;
@@ -55,6 +60,7 @@ footer p {
   position: relative;
   height: 55px;
   float: left;
+  font-size: 1em;
   padding-left: 95px;
   padding-top: 30px;
   background: url("/images/cloudspacelogo.png");

@@ -11,8 +11,11 @@ header {
   margin: 0 auto 0 auto; }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   margin: 0 auto 0 auto; }
+
+p {
+  font-size: 2em; }
 
 #container {
   position: relative;
@@ -24,6 +27,11 @@ h1 {
 #infovis {
 @extends #container;
   min-height: 500px; }
+
+#pink {
+  position: absolute;
+  float: right;
+  margin: 10 10 auto auto; }
 
 h1 {
   position: relative;
@@ -41,6 +49,7 @@ footer p {
   position: relative;
   height: 55px;
   float: left;
+  font-size: 1em;
   padding-left: 95px;
   padding-top: 30px;
   background: url("/images/cloudspacelogo.png");
