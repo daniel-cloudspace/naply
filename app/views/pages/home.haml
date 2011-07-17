@@ -9,9 +9,12 @@
       dataType: 'json',
       success: function(friendship) {
         //alert(users);
-        $.each(friendship, function(value) {
-          $('#users').append("<p>BOOBIES" +  friendship[value].user_1 + "</p>");
-        });
+        $('#users').replace(
+          "<div id=\"users\">".
+          $.each(friendship, function(value) {
+            $('#users').append("<p>" +  friendship[value].user_1 + "</p>");
+          })."</div>"
+        );
       }
     });
   }, 5000);
