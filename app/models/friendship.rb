@@ -4,7 +4,7 @@ class Friendship < ActiveRecord::Base
 
     def create_conjugate_friendship
         puts "CREATING FRIENDSHIP"
-        if ! Friendship.find(:user_1_id => self.user_2_id, :user_2_id => self.user_1_id)
+        if ! Friendship.find_by_user_1_id_and_user_2_id(self.user_2_id, self.user_1_id)
             Friendship.create(:user_1_id => self.user_2_id, :user_2_id => self.user_1_id)
         end
     end
