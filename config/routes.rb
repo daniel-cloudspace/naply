@@ -1,3 +1,3 @@
 Naply::Application.routes.draw do
-  get 'messaging', :controller => 'messaging', :action => 'index'
+  post 'messaging', :controller => 'messaging', :action => 'index'
 end
