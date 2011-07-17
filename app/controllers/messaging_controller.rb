@@ -1,10 +1,20 @@
 class MessagingController < ApplicationController
   def index
-    initial_text = params["session"]["initialText"]
+    text = params["session"]["initialText"]
     from = params["session"]["from"]
     network = from["network"]
-    from_id = from["id"]
-    if network == "SMS" || network == "JABBER"
+    phone = from["id"]
+
+    # if this message is an SMS message
+    if network == "SMS" && phone =~ /^[0-9]+$/
+      @user = User.find_by_phonenumber phone
+      # if this is a new user, create a new user
+      if @user.nil?
+        if @user = User.create :phonenumber => phone, :name => text
+          render :json => Tropo::Generator.say "#{phone} has been added. Tell people to add you as '#{text}'!"
+        end
+      end
+
       render :json => parse(initial_text)
     else
       render :json => Tropo::Generator.say("Unsupported operation")
