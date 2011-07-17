@@ -12,7 +12,7 @@ class MessagingController < ApplicationController
       if @user.nil? # CREATE THE USER FROM THE TEXT, SOMEHOW
         @user = User.find_by_name_and_phonenumber text.downcase, nil
         if @user.nil? # CREATE THE USER COMPLETELY NEW
-          @user = User.create_by_name_and_phone_number text.downcase, phone 
+          @user = User.create_by_name_and_phonenumber text.downcase, phone 
           render :json => Tropo::Generator.say("#{phone} has been added. Tell people to add you as '#{text}'!")
         else # UPDATE AN EXISTING FRIEND WHO HAD NO PHONE NUMBER (created by add_friend)
           @user.phone = phone
