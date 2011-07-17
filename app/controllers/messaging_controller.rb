@@ -10,7 +10,8 @@ class MessagingController < ApplicationController
       @user = User.find_by_phonenumber phone
       # if this is a new user, create a new user
       if @user.nil?
-        if @user = User.create :phonenumber => phone, :name => text
+        @user = User.create :phonenumber => phone, :name => text
+        if @user
           render :json => Tropo::Generator.say("#{phone} has been added. Tell people to add you as '#{text}'!")
         end
       end
