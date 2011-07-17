@@ -1,0 +1,22 @@
+{
+  users: [
+    'amy', 
+    'billy',
+    'joey',
+    'matty',
+    'phillipy',
+    'jesusy',
+    'protomen'
+  ],
+  friendships: [
+    [ 'amy', 'billy' ],
+    [ 'joey', 'matty' ],
+    [ 'jesusy', 'amy' ],
+    [ 'amy', 'protomen' ],
+    [ 'billy', 'protomen' ],
+    [ 'joey', 'protomen' ],
+    [ 'matty', 'protomen' ],
+    [ 'phillipy', 'protomen' ],
+    [ 'jesusy', 'protomen' ]
+  ]
+}
