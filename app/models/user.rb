@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
     validates_format_of :name, :with => /\A[a-z0-9]+\z/
     validates_presence_of :name
     validates_uniqueness_of :name
-    validates_uniqueness_of :phonenumber
+    validates_uniqueness_of :phonenumber, :if => lambda { !self.phonenumber.nil? }
 
     has_many :friendships
 
