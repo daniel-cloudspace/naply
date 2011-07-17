@@ -26,6 +26,9 @@ class FriendshipsController < ApplicationController
   end
 
   def a
+    @friendships = Friendship.all
+    @users = User.all
+    @friendships_full = @friendships.collect { |f| { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } }
   end
 
   # GET /friendships/1
