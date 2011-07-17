@@ -31,6 +31,19 @@ class FriendshipsController < ApplicationController
     @friendships_full = @friendships.collect { |f| { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } }
   end
 
+  def graphviz_map
+    @friendships = Friendship.all
+    @users = User.all
+    File.open("#{Rails.root}/tmp/graphviz.dot", "w") do |f|
+        f.write("digraph {")
+        @friendships.each do |friendship|
+            f.write("\"#{friendship.user_1.name}\"->\"#{friendship.user_2.name}\"")
+        end
+        f.write("}")
+    end
+    `dot -Tgif < "#{Rails.root}/tmp/graphviz.dot" > "#{Rails.root}/public/images/graphviz.gif"`
+  end
+
   # GET /friendships/1
   # GET /friendships/1.xml
   def show
