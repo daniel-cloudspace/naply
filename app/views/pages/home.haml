@@ -7,12 +7,10 @@
       //url: "http://naply.dyndns.org:3000/friendships.json",
       url: "/friendships.json",
       dataType: 'json',
-      success: function(users) {
+      success: function(friendship) {
         //alert(users);
-        $('#users').replaceWith("<p>boobs"+users.name+"</p>");
-        console.log(users); 
-        $.each(users, function(value) {
-          $('#users').append("<p>BOOBIES" +  users.name + "</p>");
+        $.each(friendship, function(value) {
+          $('#users').append("<p>BOOBIES" +  friendship[value].user_1 + "</p>");
         });
       }
     });
