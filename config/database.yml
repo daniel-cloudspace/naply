@@ -1,8 +1,8 @@
 # SQLite version 3.x
-#   gem install sqlite3
+#   gem install mysql
 development:
   adapter: mysql
-  database: db/development.mysql
+  database: naply_development
   pool: 5
   timeout: 5000
 
@@ -11,12 +11,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: mysql
-  database: db/test.mysql
+  database: naply_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: mysql
-  database: db/production.mysql
+  database: naply_production
   pool: 5
   timeout: 5000
