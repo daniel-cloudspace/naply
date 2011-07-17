@@ -13,6 +13,15 @@ class MessagingController < ApplicationController
         @user = User.create :phonenumber => phone, :name => text
         if @user
           render :json => Tropo::Generator.say("#{phone} has been added. Tell people to add you as '#{text}'!")
+        else
+          render :json => Tropo::Generator.say("Something has gone wrong :(. Check out the Cloudspace Booth by and we'll fix it!")
+        end
+      else
+        # if we DID find a user, then the message is a friend-add request, and the message text is the friend's name
+        if @user.add_friend(text)
+          render :json => Tropo::Generator.say("Added #{text} as a friend! Go meet more people!")
+        else
+          render :json => Tropo::Generator.say("Something has gone wrong :(. Check out the Cloudspace Booth by and we'll fix it!")
         end
       end
     else
