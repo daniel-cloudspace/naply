@@ -18,7 +18,7 @@ class FriendshipsController < ApplicationController
     @users = User.all
     @friendships_full = @friendships.collect { |f| { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } }
     respond_to do |format|
-      format.json { render :json => @friendships_full }
+      format.json { render :json => { adjacencies: @friendships_full } }
     end
   end
 
