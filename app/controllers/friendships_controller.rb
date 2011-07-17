@@ -2,12 +2,14 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.xml
   def index
-    @friendships = Friendship.all{:include => [ :user_1, :user_2 ]}
+    @friendships = Friendship.all
+    @users = User.all
+    @friendships_full = @friendships.collect { |f| :id => f.id, :user_1 => f.user_1, :user_2 => f.user_2 } 
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @friendships }
-      format.json { render :json => @friendships }
+      format.xml  { render :xml => @friendships_full }
+      format.json { render :json => @friendships_full }
     end
   end
 
