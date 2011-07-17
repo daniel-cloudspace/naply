@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
     def add_friend(name)
         # If friend does not already exist, create them without a phone number.
         friend = User.find_by_name name.downcase
-        if ! friend.id.nil?
+        if !friend.nil? && !friend.id.nil?
             puts "Found user, #{friend.id}, creating Friendship"
             Friendship.create(:user_1_id => self.id, :user_2_id => friend.id)
         else
             friend = User.create :name => name.downcase
-            if ! friend.id.nil?
+            if !friend.nil? && !friend.id.nil?
                 puts "Found no user, created use, #{friend.id}, creating Friendship"
                 Friendship.create(:user_1_id => self.id, :user_2_id => friend.id)
             else
