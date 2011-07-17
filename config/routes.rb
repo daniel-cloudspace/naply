@@ -1,4 +1,8 @@
 Naply::Application.routes.draw do
+  resources :friendships
+
+  resources :users
+
   get "pages/home"
 
 
