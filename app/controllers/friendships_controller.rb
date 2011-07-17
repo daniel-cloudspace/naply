@@ -32,7 +32,7 @@ class FriendshipsController < ApplicationController
   end
 
   def graphviz_map
-    @friendships = Friendship.all.collect{|f| f.user_1_id < f.user_2_id ? [ f.user_1.name, f.user_2.name ] : [ f.user_2.name, f.user_1.name ]}.uniq
+    @friendships = Friendship.all.collect{|f| f.user_1_id < f.user_2_id ? [ f.user_1.name, f.user_2.name ] : [ f.user_2.name, f.user_1.name ]}.uniq.sort_by {rand}
     @users = User.all
     File.open("#{Rails.root}/tmp/graphviz.dot", "w") do |f|
         f.write("graph {")
