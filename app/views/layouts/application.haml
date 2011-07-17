@@ -2,8 +2,11 @@
 %html
 %head
   %title Naply
-  = stylesheet_link_tag :all
+  = stylesheet_link_tag 'compiled/screen.css'
   = javascript_include_tag :all
+  %link{:href => "http://fonts.googleapis.com/css?family=Megrim&v2","rel" => 'stylesheet', :type => 'text/css'}
+  %link{:href => "http://fonts.googleapis.com/css?family=Terminal+Dosis+Light&v2","rel" => 'stylesheet', :type => 'text/css'}
   = csrf_meta_tag
 %body
+  = render 'layouts/header'
   = yield
