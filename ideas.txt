@@ -1,0 +1,11 @@
+
+
+Twitter hashtags display:
+nap, nap2011, nerdapalooza, nerdapalooza2011, #{band_names}
+
+LDA analysis on test with hashtags to generate topics discussed?
+
+SMS gateway trough Tropo using tropo-web-api:
+first message from a given number -> create new account, bind to 'name' 
+
+
