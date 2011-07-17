@@ -7,6 +7,8 @@ gem 'rails', '3.0.9'
 
 gem 'mysql'
 gem 'tropo-webapi-ruby', :git => 'git://github.com/tropo/tropo-webapi-ruby.git'
+gem 'haml'
+gem 'sass'
 
 gem 'ruby-debug19'
 
