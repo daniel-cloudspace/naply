@@ -1,2 +1,18 @@
 %h1 Pages#home
 %p Find me in app/views/pages/home.html.erb
+#users
+
+
+:javascript
+  setInterval(function add_users(){
+    $.ajax({
+      url: "/friendships.json",
+      dataType: 'json',
+      success: function(users) {
+        $.each(users, function(value) {
+          $(document).append("<p>BOOBIES" +  value + "</p>");
+        });
+      }
+    });
+  }, 5000);
+

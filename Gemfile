@@ -9,6 +9,7 @@ gem 'mysql'
 gem 'tropo-webapi-ruby', :git => 'git://github.com/tropo/tropo-webapi-ruby.git'
 gem 'haml'
 gem 'sass'
+gem 'jquery-rails'
 
 gem 'ruby-debug19'
 
