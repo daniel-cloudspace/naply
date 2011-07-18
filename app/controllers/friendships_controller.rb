@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
   def a
     @friendships = Friendship.all
     @users = User.all
-    @friendships_full = @friendships.collect { |f| { f.user_1.name => { adjacencies: { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } } } }
+    @friendships_full = @friendships.collect { |f| { f.user_1.name => { adjacencies:  [ { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } ] } } }
   end
 
   def graphviz_map
