@@ -15,10 +15,10 @@ class FriendshipsController < ApplicationController
 
   def jit_output
     @friendships = Friendship.all
-    @users = User.all
-    @friendships_full = @friendships.collect { |f| { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } }
+    @users = User.all.collect
+    @friendships_full = @friendships.collect { |f| { f.user_1.name => { adjacencies: { nodeTo: f.user_1.name, nodeFrom: f.user_2.name } } } }
     respond_to do |format|
-      format.json { render :json => { adjacencies: @friendships_full } }
+      format.json { render :json => @friendships_full }
     end
   end
 
