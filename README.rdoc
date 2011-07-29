@@ -2,5 +2,5 @@
 Nerdapalooza sms social networking thingamabobber!
 * asdf
  * asdf
-asfd **asdf**
+asfd *asdf*
 asdf __asdf__
